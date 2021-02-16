@@ -2,6 +2,7 @@ const socket = io()
 const active = document.querySelector('.js-active')
 const buzzList = document.querySelector('.js-buzzes')
 const clear = document.querySelector('.js-clear')
+const audio = new Audio("buzz.wav")
 
 socket.on('active', (numberActive) => {
   active.innerText = `${numberActive} joined`
@@ -15,7 +16,9 @@ socket.on('buzzes', (buzzes) => {
     })
     .map(user => `<li>${user.name} on Team ${user.team}</li>`)
     .join('')
+    audio.play()
 })
+
 
 clear.addEventListener('click', () => {
   socket.emit('clear')

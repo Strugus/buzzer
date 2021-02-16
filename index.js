@@ -8,8 +8,6 @@ const io = socketio(server);
 
 const title = 'Buffer Buzzer'
 
-
-
 let data = {
   users: new Set(),
   buzzes: new Set(),

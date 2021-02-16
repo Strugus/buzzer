@@ -5,6 +5,7 @@ const joined = document.querySelector('.js-joined')
 const buzzer = document.querySelector('.js-buzzer')
 const joinedInfo = document.querySelector('.js-joined-info')
 const editInfo = document.querySelector('.js-edit')
+const audio = new Audio("buzz.wav")
 
 let user = {}
 
@@ -35,6 +36,7 @@ form.addEventListener('submit', (e) => {
 })
 
 buzzer.addEventListener('click', (e) => {
+  audio.play()
   socket.emit('buzz', user)
 })
 
